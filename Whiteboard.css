@@ -68,9 +68,73 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+.color-picker {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.pencil-options {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pencil-options input[type="range"] {
+  width: 80px;
+  cursor: pointer;
+}
+
 canvas {
   background: white;
   border-radius: 10px;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
   cursor: crosshair;
 }
+
+/* ===== RIGHT AI PANEL ===== */
+.right-panel {
+  width: 260px;
+  height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  background: linear-gradient(
+    180deg,
+    #5b0f14,   /* dark maroon */
+    #8b0000,
+    #b11226   /* red */
+  );
+
+  color: white;
+}
+
+.right-panel-section {
+  flex: 1;
+  border-radius: 14px;
+  padding: 16px;
+
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 15px;
+  font-weight: 500;
+  text-align: center;
+
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.right-panel-section:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.22);
+}
+
