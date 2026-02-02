@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import Toolbar from "./Toolbar";
 import SlidePanel from "./SlidePanel";
+import RightPanel from "./RightPanel";
 import "../Whiteboard.css";
 
 const createBlankSlide = (canvas) => {
@@ -20,9 +21,9 @@ const Whiteboard = () => {
   const [tool, setTool] = useState("pencil");
   const [drawing, setDrawing] = useState(false);
 
-  const [pencilWidth] = useState(3);
+  const [pencilWidth, setPencilWidth] = useState(3);
   const [eraserWidth] = useState(25);
-  const [pencilColor] = useState("#000000");
+  const [pencilColor, setPencilColor] = useState("#000000");
 
   const [slides, setSlides] = useState([]);
   const [current, setCurrent] = useState(0);
@@ -181,12 +182,18 @@ const Whiteboard = () => {
 
       <div className="board">
         <Toolbar
-          tool={tool}
-          setTool={setTool}
-          undo={undo}
-          redo={redo}
-          clearCanvas={clearCanvas}
-        />
+  tool={tool}
+  setTool={setTool}
+  undo={undo}
+  redo={redo}
+  clearCanvas={clearCanvas}
+  pencilColor={pencilColor}
+  setPencilColor={setPencilColor}
+  pencilWidth={pencilWidth}
+  setPencilWidth={setPencilWidth}
+/>
+
+
 
         <canvas
           ref={canvasRef}
@@ -197,6 +204,7 @@ const Whiteboard = () => {
           onMouseUp={endDraw}
         />
       </div>
+      <RightPanel />
     </div>
   );
 };
